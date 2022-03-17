@@ -1,17 +1,26 @@
 import java.util.Scanner;
-class Main {
-  public static void main(String[] args) {
-  System.out.print("Podaj liczbe: ");
-    Scanner wpisz = new Scanner(System.in);
-      int liczba;
-      liczba = wpisz.nextInt();
-    if(sprawdzCzyPierwsza(liczba)==true)
-      System.out.println("To liczba pierwsza");
-    else  
-      System.out.println("To nie liczba pierwsza");
-  }
-}
-public static boolean sprawdzCzyPierwsza(int liczba){
-  if(liczba<0)
-    return false;
+
+public class Main{
+
+    public static void main(String [] args){
+        Scanner wpisz = new Scanner(System.in);
+        System.out.print("Podaj liczbe: ");
+        int a = wpisz.nextInt();
+        if(liczbaPierwsza(a)==true)
+            System.out.println("Twoja liczba jest liczba pierwsza");
+        else
+            System.out.println("To nie liczba pierwsza");
+    }
+    public static boolean liczbaPierwsza(int liczba){
+        if(liczba<2){
+            return false;
+        }
+        int i;
+        for(i=2;i<=liczba/2;i++) {
+
+            if(liczba%i==0)
+                return false;
+        }
+        return true;
+    }
 }
